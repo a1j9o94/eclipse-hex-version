@@ -16,9 +16,7 @@ import Wormhole from "./Wormhole";
 import { centerTiles, ring1Tiles, ring2Tiles, ring3Tiles } from "../resources/TileLists";
 import { TileEdge } from "../props/TileEdge";
 import { SectorTileProps } from "../props/SectorTileProps";
-import { PlanetProps } from "../props/PlanetProps";
 import Planet from "./Planet";
-import { sin60 } from "../utility/HexMath";
 
 export default function SectorTile(center: Vector, radius: number, tileProps: SectorTileProps, isPlaceholder: boolean = false, ring: number = 0) {
   useType(SectorTile);
@@ -283,6 +281,61 @@ function calculatePlanetLocations(outline: {
     planetLocations.push(point2);
     planetLocations.push(point3);
     planetLocations.push(point4);
+
+    return planetLocations;
+  }
+
+  if (numPlanets === 5) {
+    // the top point of the pentagon is the center of the hexagon and about half way between the top of the hexagon and the center
+    let point1 = new Vector(0, outline.shape.height/4);
+
+    // the bottom left point of the pentagon is about 1/3 of the way from the center to the left edge of the hexagon
+    let point2 = new Vector(-outline.shape.width/6, -outline.shape.height/6);
+
+    // the bottom right point of the pentagon is about 1/3 of the way from the center to the right edge of the hexagon
+    let point3 = new Vector(outline.shape.width/6, -outline.shape.height/6);
+
+    // the left point of the pentagon is about 1/3 of the way from the center to the left edge of the hexagon
+    let point4 = new Vector(-outline.shape.width/4, 0);
+
+    // the right point of the pentagon is about 1/3 of the way from the center to the right edge of the hexagon
+    let point5 = new Vector(outline.shape.width/4, 0);
+
+    planetLocations.push(point1);
+    planetLocations.push(point2);
+    planetLocations.push(point3);
+    planetLocations.push(point4);
+    planetLocations.push(point5);
+  
+    return planetLocations;
+  }
+
+  // for 6 do 3 columns of 2 planets
+  if (numPlanets === 6) {
+    // the top point of the left column is about 1/3 of the way from the center to the left edge of the hexagon and about half way between the top of the hexagon and the center
+    let point1 = new Vector(-outline.shape.width/4, outline.shape.height/5);
+    
+    // the bottom point of the left column is about 1/3 of the way from the center to the left edge of the hexagon and about 1/3 of the way between the center and the bottom of the hexagon
+    let point2 = new Vector(-outline.shape.width/4, -outline.shape.height/7);
+
+    // the top point of the middle column is about 1/3 of the way from the center to the right edge of the hexagon and about half way between the top of the hexagon and the center
+    let point3 = new Vector(0, outline.shape.height/5);
+
+    // the bottom point of the middle column is about 1/3 of the way from the center to the right edge of the hexagon and about 1/3 of the way between the center and the bottom of the hexagon
+    let point4 = new Vector(0, -outline.shape.height/7);
+
+    // the top point of the right column is about 1/3 of the way from the center to the right edge of the hexagon and about half way between the top of the hexagon and the center
+    let point5 = new Vector(outline.shape.width/4, outline.shape.height/5);
+
+    // the bottom point of the right column is about 1/3 of the way from the center to the right edge of the hexagon and about 1/3 of the way between the center and the bottom of the hexagon
+    let point6 = new Vector(outline.shape.width/4, -outline.shape.height/7);
+
+    planetLocations.push(point1);
+    planetLocations.push(point2);
+    planetLocations.push(point3);
+    planetLocations.push(point4);
+    planetLocations.push(point5);
+    planetLocations.push(point6);
 
     return planetLocations;
   }

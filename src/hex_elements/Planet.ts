@@ -5,6 +5,9 @@ import {
     Geometry,
     Polygon,
     Vector,
+    Label,
+    SystemFont,
+    Mouse,
 } from "@hex-engine/2d";
 import { PlanetProps } from "../props/PlanetProps";
 import { ResourceType } from "../props/Resource";
@@ -19,6 +22,21 @@ export default function Planet(PlanetLocation: Vector, planetProps: PlanetProps)
     shape: Polygon.rectangle(new Vector(7, 7)),
     position: PlanetLocation,
   }));
+
+    const mouse = useNewComponent(Mouse);
+    mouse.onClick(() => {
+        //set the planet to populated or vice versa
+        planetProps.populated = !planetProps.populated;
+    });
+
+
+  const font = useNewComponent(() =>
+    SystemFont({ name: "sans-serif", size: 8 })
+  );
+
+  const label = useNewComponent(() =>
+    Label({ font })
+  );
 
   // Draw the hexagon and warp portals
   useDraw((context) => {
@@ -54,6 +72,12 @@ export default function Planet(PlanetLocation: Vector, planetProps: PlanetProps)
         }
 
         planet.shape.draw(context, "fill");
+
+        // write a white x if the planet is "populated"
+        if (planetProps.populated) {
+            label.text = "X";
+            label.draw(context, {x: 0, y: 0});
+        }
   });
 
 }

@@ -2,6 +2,7 @@ import { TileEdge } from "./TileEdge";
 import { PlanetProps } from "./PlanetProps";
 import { NPC } from "./NPC";
 import { DiscoveryTileProps } from "./DiscoveryTileProps";
+import { Player } from "./Player";
 
 export class SectorTileProps {
 

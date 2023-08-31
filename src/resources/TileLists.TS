@@ -8,7 +8,6 @@ console.log("Tile Edge: ", TileEdge);
 
 
 let allTiles: SectorTileProps[] = [
-    ,
     new SectorTileProps(
         2, //id
         [
@@ -46,6 +45,9 @@ let centerTiles: SectorTileProps[] = [
             new PlanetProps(ResourceType.gold),
             new PlanetProps(ResourceType.science),
             new PlanetProps(ResourceType.materials),
+            new PlanetProps(ResourceType.advanced_science),
+            new PlanetProps(ResourceType.advanced_materials),
+            new PlanetProps(ResourceType.advanced_gold),
         ], //planets
         [], //npcs
         null, //discoveryTile
@@ -65,11 +67,7 @@ let ring1Tiles: SectorTileProps[] = [
             new TileEdge(true), //top,
             new TileEdge(false), //top right,
         ], //edges
-        [
-            new PlanetProps(ResourceType.gold),
-            new PlanetProps(ResourceType.science),
-            new PlanetProps(ResourceType.advanced_science)
-        ], //planets
+        [], //planets
         [], //npcs
         new DiscoveryTileProps(false, null, () => {}), //discoveryTile
         2, //point_value
@@ -87,8 +85,65 @@ let ring1Tiles: SectorTileProps[] = [
         ], //edges
         [
             new PlanetProps(ResourceType.gold),
+        ], //planets
+        [], //npcs
+        new DiscoveryTileProps(false, null, () => {}), //discoveryTile
+        2, //point_value
+        false //artifact
+    ),
+    new SectorTileProps(
+        12, //id
+        [
+            new TileEdge(false), //bottom right,
+            new TileEdge(true), //bottom,
+            new TileEdge(false), //bottom left,
+            new TileEdge(false), //top left,
+            new TileEdge(true), //top,
+            new TileEdge(false), //top right,
+        ], //edges
+        [
             new PlanetProps(ResourceType.gold),
             new PlanetProps(ResourceType.science),
+        ], //planets
+        [], //npcs
+        new DiscoveryTileProps(false, null, () => {}), //discoveryTile
+        2, //point_value
+        false //artifact
+    ),
+    new SectorTileProps(
+        13, //id
+        [
+            new TileEdge(false), //bottom right,
+            new TileEdge(true), //bottom,
+            new TileEdge(false), //bottom left,
+            new TileEdge(false), //top left,
+            new TileEdge(true), //top,
+            new TileEdge(false), //top right,
+        ], //edges
+        [
+            new PlanetProps(ResourceType.gold),
+            new PlanetProps(ResourceType.science),
+            new PlanetProps(ResourceType.advanced_science)
+        ], //planets
+        [], //npcs
+        new DiscoveryTileProps(false, null, () => {}), //discoveryTile
+        2, //point_value
+        false //artifact
+    ),
+    new SectorTileProps(
+        14, //id
+        [
+            new TileEdge(false), //bottom right,
+            new TileEdge(true), //bottom,
+            new TileEdge(false), //bottom left,
+            new TileEdge(false), //top left,
+            new TileEdge(true), //top,
+            new TileEdge(false), //top right,
+        ], //edges
+        [
+            new PlanetProps(ResourceType.gold),
+            new PlanetProps(ResourceType.science),
+            new PlanetProps(ResourceType.advanced_science),
             new PlanetProps(ResourceType.advanced_science)
         ], //planets
         [], //npcs

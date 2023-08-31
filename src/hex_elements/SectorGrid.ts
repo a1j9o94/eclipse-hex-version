@@ -4,7 +4,6 @@ import {
   Vector,
 } from "@hex-engine/2d";
 import { PlaceholderTile } from "./SectorTile";
-import { sin60 } from "../utility/HexMath";
 
 export default function SectorGrid(center: Vector) {
   useType(SectorGrid);
@@ -12,7 +11,7 @@ export default function SectorGrid(center: Vector) {
   const hexRadius = 40;
 
   // Loop through each ring
-  for (let ring = 1; ring <= 4 ; ring++) {
+  for (let ring = 1; ring <= 3 ; ring++) {
     // Get the hexagonal coordinates for each hexagon in this ring
     const hex_coords = get_hex_coordinates(ring);
     console.log(hex_coords);
@@ -21,7 +20,6 @@ export default function SectorGrid(center: Vector) {
     // Loop through each hexagon in this ring
     for (let i = 0; i < hex_coords.length; i++) {
       // Get the hexagonal coordinates for this hexagon
-      const [x_hex, y_hex, z_hex] = hex_coords[i];
 
       // Calculate the Cartesian coordinates for this hexagon
       const [x_cartesian, y_cartesian] = hex_to_cartesian(hex_coords[i], hexRadius);
@@ -37,7 +35,7 @@ export default function SectorGrid(center: Vector) {
 
 function get_hex_coordinates(ring) {
   // Initialize an array to hold the coordinates of the hexagons
-  let hex_coords: [number[]] = [];
+  let hex_coords: number[][] = [];
 
   // If it's the first ring, it's just the center hexagon
   if (ring === 1) {
