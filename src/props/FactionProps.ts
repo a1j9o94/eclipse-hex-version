@@ -1,9 +1,9 @@
-import { Blueprint } from "./Blueprint";
+import { BlueprintProps } from "./BlueprintProps";
 
-export class Faction {
+export class FactionProps {
    
     
-    constructor(id: number, name: string, max_influence_disks: number, influence_costs: number[], reputation_capacity: number, ambassador_capacity: number, colony_ships: number, default_blueprints: Blueprint[], action_count: number[], starting_resources: { ResourceType: number }[], trade_ratio: number) {
+    constructor(id: number, name: string, max_influence_disks: number, influence_costs: number[], reputation_capacity: number, ambassador_capacity: number, colony_ships: number, default_blueprints: BlueprintProps[], action_count: number[], starting_resources: { ResourceType: number }[], trade_ratio: number) {
         this.id = id;
         this.name = name;
         this.max_influence_disks = max_influence_disks;
@@ -39,7 +39,7 @@ export class Faction {
     reputation_capacity: number;
     ambassador_capacity: number;
     colony_ships: number;
-    default_blueprints: Blueprint[];
+    default_blueprints: BlueprintProps[];
     action_count: number[];
     starting_resources: { ResourceType: number }[];
     trade_ratio: number;

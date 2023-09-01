@@ -1,18 +1,20 @@
-import { Part } from './Part';
-import { Player } from './Player';
+import { PartProps } from './PartProps';
+import { PlayerProps } from './PlayerProps';
 
 
 export class DiscoveryTileProps {
     
-    constructor(isPart: boolean, benefit: Part | null, collect: (player: Player) => void) {
-        this.isPart = isPart;
+    constructor(benefit: PartProps | null, points: number = 2, collect: (player: PlayerProps) => void) {
         this.benefit = benefit;
         this.collect = collect;
+        this.points = points;
     }
     
-    isPart: boolean;
-    benefit: Part | null;
+    benefit: PartProps | null;
+    reveal: boolean = false;
+    collectable: boolean = false;
+    points: number = 0;
 
     //callback function to be called when the benefit is applied
-    collect: (player: Player) => void;
+    collect: (player: PlayerProps) => void;
 }   

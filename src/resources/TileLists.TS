@@ -1,10 +1,11 @@
 import { SectorTileProps } from "../props/SectorTileProps"
 console.log("Tile Props: ", SectorTileProps);
 import { PlanetProps } from "../props/PlanetProps"
-import { ResourceType } from "../props/Resource"
+import { ResourceType } from "../props/ResourceProps"
 import { DiscoveryTileProps } from "../props/DiscoveryTileProps"
 import { TileEdge } from "../props/TileEdge"
 console.log("Tile Edge: ", TileEdge);
+import { DiscoveryTileLists } from "./DiscoveryTilleLists";
 
 
 let allTiles: SectorTileProps[] = [
@@ -24,7 +25,7 @@ let allTiles: SectorTileProps[] = [
             new PlanetProps(ResourceType.advanced_science)
         ], //planets
         [], //npcs
-        new DiscoveryTileProps(false, null, () => {}), //discoveryTile
+        DiscoveryTileLists[Math.floor(Math.random() * DiscoveryTileLists.length)], //discoveryTile
         2, //point_value
         false //artifact
     )
@@ -50,7 +51,7 @@ let centerTiles: SectorTileProps[] = [
             new PlanetProps(ResourceType.advanced_gold),
         ], //planets
         [], //npcs
-        null, //discoveryTile
+        DiscoveryTileLists[Math.floor(Math.random() * DiscoveryTileLists.length)], //discoveryTile
         2, //point_value
         true
     )
@@ -69,7 +70,7 @@ let ring1Tiles: SectorTileProps[] = [
         ], //edges
         [], //planets
         [], //npcs
-        new DiscoveryTileProps(false, null, () => {}), //discoveryTile
+        new DiscoveryTileProps(null, () => {}), //discoveryTile
         2, //point_value
         false //artifact
     ),

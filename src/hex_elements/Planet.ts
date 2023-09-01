@@ -10,7 +10,7 @@ import {
     Mouse,
 } from "@hex-engine/2d";
 import { PlanetProps } from "../props/PlanetProps";
-import { ResourceType } from "../props/Resource";
+import { ResourceType } from "../props/ResourceProps";
   
 export default function Planet(PlanetLocation: Vector, planetProps: PlanetProps) {
   useType(Planet);

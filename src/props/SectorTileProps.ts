@@ -2,7 +2,7 @@ import { TileEdge } from "./TileEdge";
 import { PlanetProps } from "./PlanetProps";
 import { NPC } from "./NPC";
 import { DiscoveryTileProps } from "./DiscoveryTileProps";
-import { Player } from "./Player";
+import { PlayerProps } from "./PlayerProps";
 
 export class SectorTileProps {
 
@@ -26,5 +26,5 @@ export class SectorTileProps {
     discoveryTile?: DiscoveryTileProps | null;
     point_value: number;
     artifact: boolean;
-    owner?: Player | null = null;
+    owner?: PlayerProps | null = null;
   }

@@ -1,7 +1,7 @@
-import { Blueprint } from "./Blueprint";
+import { BlueprintProps } from "./BlueprintProps";
 
 export interface NPC {
     name: string;
-    blueprint: Blueprint;
+    blueprint: BlueprintProps;
     damage: number;
 }

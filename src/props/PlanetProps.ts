@@ -1,4 +1,4 @@
-import { ResourceType } from "./Resource";
+import { ResourceType } from "./ResourceProps";
 
 export class PlanetProps {
     
